@@ -1,0 +1,6 @@
+numpy
+scipy
+torch
+torchvision
+pylidc  # Only required to preprocess LIDC dataset
+pydicom # Only required to preprocess LDCT dataset
