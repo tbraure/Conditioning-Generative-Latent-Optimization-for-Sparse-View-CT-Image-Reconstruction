@@ -20,3 +20,9 @@ def l1_dose_half_loss(x_dose, y, nb_ang, reduction='mean'):
 def l2_dose_half_loss(x_dose, y, nb_ang, reduction='mean'):
     return F.mse_loss(f_op(y, nb_ang), x_dose, reduction=reduction)
 
+def PNLL_dose_half_loss(x_dose, y, nb_ang, N_0, reduction='mean'):
+    return F.poisson_nll_loss(
+      N_0 * torch.exp(-f_op(y, nb_ang)), x_dose,
+      log_input=False, full=True, reduction=reduction
+    )
+
